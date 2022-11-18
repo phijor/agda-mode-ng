@@ -1,29 +1,88 @@
-# `agda-mode-ng`
+# Improving Agda Interaction
 
-> Let's rethink how we interact with Agda.
+This repository is a centralised location for
+the ideas regarding interaction with Agda.  By interaction
+we mean the ability to communicate with the type checker,
+elaborator, etc. while developing Agda programs.
 
-This repository is meant to coordinate efforts that improve how Agda integrates with text editors and IDEs.
+At [AIM XXXI][AIM31]
+we concluded that we collect in this repository
+_design documents_, links to (prototypical) _implementations_
+and _design proposals_.
 
-At _AIM XXXI_, we discussed how to coordinate efforts towards writing a Language Server.
-We concluded that any _design documents_ should end up here, and that this should be the
-central place to discussed _potential implementations_ before committing to a specific
-design.
+# Problems with Existing Interaction
 
-## Goals
+The existing Agda interaction mode has the following
+shortcomings:
 
-* enable Agda integration in editors that are not Emacs
-* explore new interaction features:
-    - auto-completion for identifiers
-    - type information for types outside of the context of a hole
-    - ...
-* __Implement an Agda Language Server__ using the [Language Server Protocol][LSP]
-* ... (your improvements here)
+1. The interaction is very much
+   [Emacs][emacs]-oriented.
+   Therefore, integrating other text editors with the same
+   level of feature support is difficult.
 
-## How to Contribute
+2. The interaction model has a built-in assumption that
+   there is always a single file and the communication
+   is synchronous.  This does not fit very well the idea
+   of modern text editors which assume asynchronous
+   communication.
+
+3. When interacting with Agda, there is an inherent problem
+   of figuring out when do you need to re-typecheck.
+   Strictly speaking, Agda cannot answer any simplest
+   requests (e.g. what is the type of this variable) without
+   typechecking the entire file.  If the client made some
+   edits and then sends the new request, do you need to
+   re-typecheck the entire file (which can be slow), or
+   it can be answered using the old server "state".
+   These decisions are nowhere documented.  They are
+   hard-coded and are very difficult to change.
+
+# Links
+
+Larger documents appear in their own file.  Here we keep
+track of them and give a brief summary to simplify
+navigation.
+
+## LSP
+
+[Language Server Protocol][LSP] is a standardised protocol
+for language servers to communicate with text editors.
+Language Server is an entity that can satisfy standard
+requests that happen during developing programs, e.g.
+what is the type of this variable, where this record
+is defined, etc.
+
+While LSP was not created to support theorem provers,
+many of Agda developers agreed that this might be a valid
+target to base an interaction with Agda.  The main 
+argument in favour of using LSP is the number of editors
+that support it.  This means that a lot of interacton
+logic such as displaying error messages, changing text,
+etc., does not need to be implemented on the clients.
+
+Further details are here:
+TODO
+
+A proof-of-concept implementation is here:
+TODO
+
+## Alternative Implementations
+
+There is a number of plugins that are current interaction
+interface of Agda.
+
+TODO
+
+## Design
+
+TODO
+
+# How to Contribute
 
 Feel free to open pull request or issues to discuss with us,
 and more importantly share this place with anyone who is
 thinking about writing their own Agda editor plugin.
 
-
+[AIM31]: https://wiki.portal.chalmers.se/agda/pmwiki.php?n=Main.AIMXXXI
+[emacs]: https://www.gnu.org/software/emacs/
 [LSP]: https://microsoft.github.io/language-server-protocol/
