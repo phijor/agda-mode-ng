@@ -46,7 +46,7 @@ to replace.  This is something to keep in mind when
 designing the language server (e.g. try to build a thin
 wrapper that would allow to replace LSP if needed).
 
-Some discussion in #1.
+Some discussion in  phijor/agda-mode-ng#1
 
 
 # Standard Language Features
@@ -122,7 +122,7 @@ interaction.
 
 
 [neovim]: https://neovim.io/
-[visualstudio]: https://visualstudio.microsoft.com/
+[vstudio]: https://visualstudio.microsoft.com/
 [emacs]: https://www.gnu.org/software/emacs/
 [alster]: https://github.com/phijor/alster
 [LSP]: https://microsoft.github.io/language-server-protocol/
