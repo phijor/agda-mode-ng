@@ -60,11 +60,11 @@ that support it.  This means that a lot of interacton
 logic such as displaying error messages, changing text,
 etc., does not need to be implemented on the clients.
 
-Further details are here:
-TODO
+Further details are here: [LSP design][lspdesign]
 
-A proof-of-concept implementation is here:
-TODO
+
+A proof-of-concept implementation is here: [Alster][alster]
+
 
 ## Alternative Implementations
 
@@ -86,3 +86,5 @@ thinking about writing their own Agda editor plugin.
 [AIM31]: https://wiki.portal.chalmers.se/agda/pmwiki.php?n=Main.AIMXXXI
 [emacs]: https://www.gnu.org/software/emacs/
 [LSP]: https://microsoft.github.io/language-server-protocol/
+[lspdesign]: https://github.com/phijor/agda-mode-ng/blob/main/LSP.md
+[alster]: https://github.com/phijor/alster
