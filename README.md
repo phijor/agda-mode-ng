@@ -10,6 +10,12 @@ we concluded that we collect in this repository
 _design documents_, links to (prototypical) _implementations_
 and _design proposals_.
 
+We are trying to improve the interaction experience,
+so we do not have to stick to the old interaction backend
+of Agda.  Certainly we want to reuse some parts, but we
+work under the assumption that we are allowed to change
+Agda.
+
 # Problems with Existing Interaction
 
 The existing Agda interaction mode has the following
